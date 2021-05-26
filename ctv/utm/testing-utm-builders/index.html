@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from utmbuilder.net/testing-utm-builders/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 09 May 2021 11:05:51 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
+<meta content='IE=edge' http-equiv='X-UA-Compatible'>
+<meta charset='utf-8'>
+<meta content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no' name='viewport'>
+<title>How to find out if a UTM Builder Works Correctly?</title>
+<meta content='Many UTM builders generate wrong URLs. Test your builder with these URLs and UTM codes to find out if it&#39;s building URLs correctly.' name='description'>
+<meta content='utm builder,url builder,utm generator,utm creator,utm maker' name='keywords'>
+<link href='index.html' rel='canonical'>
+<link href='../assets/images/favicon.ico' rel='shortcut icon' type='image/x-icon'>
+<link href="../assets/stylesheets/site-f66f906a.css" rel="stylesheet" />
+<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-35877851-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-35877851-3');
+</script>
+
+</head>
+<body class='navbar-top-sm-xs testing-utm-builders testing-utm-builders_index'>
+<div class='navbar-fixed-top'>
+<div class='navbar navbar-lg navbar-inverse bg-success-700'>
+<div class='container'>
+<div class='navbar-header'>
+<a href="../index.html" data-action-id="brand" data-action-context="top_nav" class="navbar-brand"><div class='brand-img brand-inverse'>UTM Builder</div>
+</a></div>
+<div class='navbar-collapse collapse' id='navbar-mobile'>
+<div class='navbar-right'>
+<p class='navbar-text'>
+All UTM building resources in one place
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class='navbar navbar-default'>
+<div class='container'>
+<ul class='nav navbar-nav pull-right visible-xs-block'>
+<li>
+<a aria-expanded='true' data-target='#navbar-second-toggle' data-toggle='collapse' href='javascript:;'>
+<i class='icon-menu7'></i>
+</a>
+</li>
+</ul>
+<div class='navbar-collapse collapse' id='navbar-second-toggle'>
+<ul class='nav navbar-nav navbar-right'>
+<li>
+<a href="../simple-url-builders/index.html"><i class='icon-file-text3 position-left'></i>
+Simple Builders
+</a></li>
+<li>
+<a href="../spreadsheets/index.html"><i class='icon-file-spreadsheet2 position-left'></i>
+UTM Spreadsheets
+</a></li>
+<li>
+<a href="index.html">Testing UTM Builders
+</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+<div class='jumbotron pt-60 pb-20 text-center no-margin-bottom bg-default'>
+<div class='container'>
+<h1 class='text-light'>
+How to find out if a UTM Builder Works Correctly?
+</h1>
+<div class='content-group-lg'>
+<p>
+Test your UTM builder with these URLs and UTM codes to find out
+</p>
+</div>
+</div>
+</div>
+<section class='pt-20'>
+<div class='container'>
+<div class='row'>
+<div class='col-lg-8'>
+<p>
+There is no shortage of UTM builders that promise to help you generate UTM codes. Most of them are
+a Google search away. But should you rely on them to build your UTM tracking URLs?
+</p>
+<p>
+Only if they pass these tests.
+<ol>
+<li><a href="#query-parameter-test">Query Parameters Test</a></li>
+<li><a href="#hash-fragment-test">Hash (#) Fragment Test</a></li>
+<li><a href="#combination-query-hash-test">Combination Query/Hash Test</a></li>
+<li><a href="#space-test">Space Test</a></li>
+</ol>
+</p>
+<div id='query-parameter-test'>
+<h3>
+1. Query Parameters Test
+</h3>
+<p>
+Specify these values in the builder
+</p>
+<p>
+<table class='table table-xs table-bordered mt-20 mb-20'>
+<tbody>
+<tr>
+<td>URL</td>
+<td>
+<code>https://www.example.com?coupon=50percent</code>
+</td>
+</tr>
+<tr>
+<td>utm_campaign</td>
+<td>
+<code>sale</code>
+</td>
+</tr>
+<tr>
+<td>utm_medium</td>
+<td>
+<code>email</code>
+</td>
+</tr>
+<tr>
+<td>utm_source</td>
+<td>
+<code>newsletter</code>
+</td>
+</tr>
+<tr>
+<td>utm_content</td>
+<td>
+<code>buy</code>
+</td>
+</tr>
+<tr>
+<td>utm_term</td>
+<td>
+<code>shoes</code>
+</td>
+</tr>
+</tbody>
+</table>
+</p>
+<p>
+The generated URL should look like
+<pre>https://www.example.com/?coupon=50percent&utm_source=newsletter&utm_medium=email&utm_campaign=sale&utm_content=buy&utm_term=shoes</pre>
+</p>
+<p>
+The actual URL could be different, but it should still have these properties:
+</p>
+<div class='panel panel-bordered panel-info'>
+<div class='panel-heading'>
+<h6 class='panel-title'>Query Parameters test results</h6>
+</div>
+<div class='panel-body'>
+<ul>
+<li>All UTM parameters should be present even if the order is different</li>
+<li>
+The query parameter
+<code>coupon=50percent</code>
+should be present
+</li>
+<li>
+There should be only one
+<code>?</code>
+after
+<code>https://www.example.com</code>
+</li>
+<li>
+All the other query parameters should be separated by
+<code>&</code>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div id='hash-fragment-test'>
+<h3>
+2. Hash (#) Fragment Test
+</h3>
+<p>
+Specify these values in the builder
+</p>
+<p>
+<table class='table table-xs table-bordered mt-20 mb-20'>
+<tbody>
+<tr>
+<td>URL</td>
+<td>
+<code>https://www.example.com?#section</code>
+</td>
+</tr>
+<tr>
+<td>utm_campaign</td>
+<td>
+<code>sale</code>
+</td>
+</tr>
+<tr>
+<td>utm_medium</td>
+<td>
+<code>email</code>
+</td>
+</tr>
+<tr>
+<td>utm_source</td>
+<td>
+<code>newsletter</code>
+</td>
+</tr>
+<tr>
+<td>utm_content</td>
+<td>
+<code>buy</code>
+</td>
+</tr>
+<tr>
+<td>utm_term</td>
+<td>
+<code>shoes</code>
+</td>
+</tr>
+</tbody>
+</table>
+</p>
+<p>
+The generated URL should look like
+<pre>https://www.example.com/?utm_source=newsletter&utm_medium=email&utm_campaign=sale&utm_content=buy&utm_term=shoes#section</pre>
+</p>
+<p>
+As before, the actual generated URL could be slightly different.
+</p>
+<div class='panel panel-bordered panel-info'>
+<div class='panel-heading'>
+<h6 class='panel-title'>Hash Fragment test results</h6>
+</div>
+<div class='panel-body'>
+<ul>
+<li>All UTM parameters should be present even if the order is different</li>
+<li>
+Hash fragment
+<code>#section</code>
+should be at the end
+</li>
+</ul>
+</div>
+</div>
+<p>
+Many UTM builders fail this test. So definitely watch out.
+</p>
+</div>
+<div id='combination-query-hash-test'>
+<h3>
+3. Combination Query/Hash Test
+</h3>
+<p>
+Let's try a combination of
+<em>Query Parameter</em>
+and
+<em>Hash Fragment</em>
+tests
+</p>
+<p>
+<table class='table table-xs table-bordered mt-20 mb-20'>
+<tbody>
+<tr>
+<td>URL</td>
+<td>
+<code>https://www.example.com?coupon=50percent#section</code>
+</td>
+</tr>
+<tr>
+<td>utm_campaign</td>
+<td>
+<code>sale</code>
+</td>
+</tr>
+<tr>
+<td>utm_medium</td>
+<td>
+<code>email</code>
+</td>
+</tr>
+<tr>
+<td>utm_source</td>
+<td>
+<code>newsletter</code>
+</td>
+</tr>
+<tr>
+<td>utm_content</td>
+<td>
+<code>buy</code>
+</td>
+</tr>
+<tr>
+<td>utm_term</td>
+<td>
+<code>shoes</code>
+</td>
+</tr>
+</tbody>
+</table>
+</p>
+<p>
+The generated URL should look like
+<pre>https://www.example.com/?coupon=50percent&utm_source=newsletter&utm_medium=email&utm_campaign=sale&utm_content=buy&utm_term=shoes#section</pre>
+</p>
+<p>
+Again, the actual URL could be different, but it should still have these properties:
+</p>
+<div class='panel panel-bordered panel-info'>
+<div class='panel-heading'>
+<h6 class='panel-title'>Combination Query/Hash test results</h6>
+</div>
+<div class='panel-body'>
+<ul>
+<li>All UTM parameters should be present even if the order is different</li>
+<li>
+The query parameter
+<code>coupon=50percent</code>
+should be present
+</li>
+<li>
+There should be only one
+<code>?</code>
+after
+<code>https://www.example.com</code>
+</li>
+<li>
+All the other query parameters should be separated by
+<code>&</code>
+</li>
+<li>
+Hash fragment
+<code>#section</code>
+should be at the end
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div id='space-test'>
+<h3>
+4. Space Test
+</h3>
+<p>
+Most people don't check for this test though it is important. This test mostly requires you to add spaces before and after each value.
+</p>
+<p>
+<table class='table table-xs table-bordered mt-20 mb-20'>
+<tbody>
+<tr>
+<td>URL</td>
+<td>
+<code>&nbsp;&nbsp;https://www.example.com&nbsp;&nbsp;&nbsp;</code>
+</td>
+</tr>
+<tr>
+<td>utm_campaign</td>
+<td>
+<code>&nbsp;&nbsp;sale&nbsp;&nbsp;</code>
+</td>
+</tr>
+<tr>
+<td>utm_medium</td>
+<td>
+<code>&nbsp;&nbsp;email&nbsp;&nbsp;</code>
+</td>
+</tr>
+<tr>
+<td>utm_source</td>
+<td>
+<code>&nbsp;&nbsp;newsletter&nbsp;&nbsp;</code>
+</td>
+</tr>
+<tr>
+<td>utm_content</td>
+<td>
+<code>&nbsp;&nbsp;buy&nbsp;&nbsp;</code>
+</td>
+</tr>
+<tr>
+<td>utm_term</td>
+<td>
+<code>&nbsp;&nbsp;shoes&nbsp;&nbsp;</code>
+</td>
+</tr>
+</tbody>
+</table>
+</p>
+<p>
+The generated URL should look like
+<pre>https://www.example.com/?utm_source=newsletter&utm_medium=email&utm_campaign=sale&utm_content=buy&utm_term=shoes</pre>
+</p>
+<p>
+The actual URL could be different, but it should still have these properties:
+</p>
+<div class='panel panel-bordered panel-info'>
+<div class='panel-heading'>
+<h6 class='panel-title'>Query Parameters test results</h6>
+</div>
+<div class='panel-body'>
+<ul>
+<li>All UTM parameters should be present even if the order is different</li>
+<li>Any spaces you added should be removed from the values</li>
+<li>Spaces (before and after) should not be replaced by another character</li>
+</ul>
+</div>
+</div>
+<p>
+Some UTM builders will replace the spaces with some character, say underscore
+<code>_</code>
+.
+This feature is useful, but should
+only be applied to spaces between words, e.g.
+<code>buy now</code>
+can be converted to
+<code>buy_now</code>
+.
+It should not be applied to spaces that are before and after your UTM tag.
+</p>
+</div>
+<em>If you have already been using a UTM builder, go ahead and check it using these tests to make sure it works correctly.</em>
+</div>
+<div class='col-lg-3 col-lg-offset-1'>
+<h2 class='pb-5'>
+ 
+</h2>
+<div class='panel border-success-700'>
+<div class='panel-heading bg-success-700'>
+<h6 class='panel-title text-uppercase'>
+<div class='terminus-img terminus-inverse'>Terminus UTM Builder</div>
+</h6>
+</div>
+<div class='panel-body'>
+<div class='pb-10'>
+<p>
+<span class='text-bold'>
+Need an All-in-one UTM Builder and Link Management Solution?
+</span>
+</p>
+<p>
+Terminus is used daily by companies of all sizes, from one person
+marketing agency to a team of hundreds in billion dollar global enterprises.
+</p>
+<p>Interested?</p>
+<p class='text-semibold'>
+Customize your URL builder with your own naming conventions.
+</p>
+</div>
+<a href="https://ter.li/utmsidebar" data-action-context="sidebar" data-action-id="terminus" class="btn btn-lg btn-block bg-orange-800">All-in-one UTM Builder
+</a></div>
+</div>
+
+</div>
+</div>
+</div>
+</section>
+
+<section id='footer'>
+<div class='container'>
+<div class='row'>
+<div class='col-md-12'>
+<img src="../../d33wubrfki0l68.cloudfront.net/assets/images/74f115b59d3b23006a578390ba3e0f665f652cbc/logo-74f115b5.png" width="16px" class="pb-10" alt="UTM Builder" />
+<h4 class='display-inline-block'>
+<a href="../index.html">UTM Builder</a>
+</h4>
+brought to you by
+<a href="https://www.terminusapp.com/" class="text-bold">Terminus</a>
+</div>
+</div>
+</div>
+</section>
+
+<script src="../../ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="../assets/javascripts/all-1ffe8634.js"></script>
+
+
+</body>
+
+<!-- Mirrored from utmbuilder.net/testing-utm-builders/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 09 May 2021 11:05:51 GMT -->
+</html>
